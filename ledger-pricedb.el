@@ -32,6 +32,7 @@
 
 (defun ledger-pricedb-save-pricedb ()
   "Save the prices downloaded by generate-pricedb to the pricedb file."
+  (interactive)
   (write-region "\n" nil  ledger-pricedb--pricedb 'append)
   (write-region (mapconcat 'identity (ledger-pricedb-generate-pricedb (ledger-pricedb-get-prices ledger-pricedb--yahoo_uri ledger-pricedb--stocks)) "\n") nil  ledger-pricedb--pricedb 'append)
   (write-region "\n" nil  ledger-pricedb--pricedb 'append))
