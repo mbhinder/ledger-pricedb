@@ -18,7 +18,7 @@
   "Get prices from Yahoo using URI for the http uri for the tickers specified in TICKERS."
   (split-string
    (with-current-buffer (url-retrieve-synchronously
-                         (concat uri (mapconcat 'identity tickers "+") "&f=p"))
+                         (concat uri (mapconcat 'identity tickers "+") "&f=l1"))
      (goto-char (point-min))
      (re-search-forward "^\n")
      (delete-region (point) (point-min))
